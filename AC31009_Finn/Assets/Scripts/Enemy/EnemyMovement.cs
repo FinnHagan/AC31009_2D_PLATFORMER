@@ -20,6 +20,11 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
+        HandleEnemyMovement();
+    }
+
+    private void HandleEnemyMovement()
+    {
         float movement = enemySpeed * Time.deltaTime * (moveRight ? 1 : -1);
         transform.position = new Vector3(transform.position.x + movement, transform.position.y, transform.position.z);
 
