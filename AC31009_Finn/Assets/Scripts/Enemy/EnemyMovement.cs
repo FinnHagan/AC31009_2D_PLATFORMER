@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -25,8 +26,11 @@ public class EnemyMovement : MonoBehaviour
 
     private void HandleEnemyMovement()
     {
-        float movement = enemySpeed * Time.deltaTime * (moveRight ? 1 : -1);
-        transform.position = new Vector3(transform.position.x + movement, transform.position.y, transform.position.z);
+        float xInput = enemySpeed * Time.deltaTime * (moveRight ? 1 : -1);
+        transform.position = new Vector3(transform.position.x + xInput, transform.position.y, transform.position.z);
+        // Change character direction when turning left
+        if (Mathf.Sign(xInput) != 0)
+            transform.localScale = new Vector3(10 * Mathf.Sign(xInput), 10, 10);
 
         if (transform.position.x >= rightLimit && moveRight)
         {
@@ -42,8 +46,27 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.CompareTag("Player") && Time.time - lastAttackTime >= attackCooldown)
         {
-            collision.GetComponent<Health>().HitTaken(hit);
-            lastAttackTime = Time.time;
+            Vector2 collisionDirection = collision.transform.position - transform.position;
+            if (collisionDirection.y > 0 && collision.GetComponent<Rigidbody2D>().velocity.y < 0)
+            {
+                Defeated();
+            }
+            else
+            {
+                collision.GetComponent<Health>().HitTaken(hit);
+                lastAttackTime = Time.time;
+            }
         }
+    }
+    public void Defeated()
+    {
+        // Play death animation
+        GetComponent<Animator>().SetTrigger("EnemyDeath");
+        // Disable collider
+        GetComponent<Collider2D>().enabled = false;
+        // Disable movement
+        enabled = false;
+        // Destroy game object after a delay
+        Destroy(gameObject, 0.75f);
     }
 }

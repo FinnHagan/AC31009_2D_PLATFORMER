@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int extraJumps;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] float deathHeight;
+    [SerializeField] private float defeatJumpForce;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -36,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Change character direction when turning left
         if (Mathf.Sign(xInput) != 0)
-            transform.localScale = new Vector3(Mathf.Sign(xInput), 1, 1);
+            transform.localScale = new Vector3(7 * Mathf.Sign(xInput), 7, 7);
     }
 
     private void Jump()
@@ -81,5 +82,34 @@ public class PlayerMovement : MonoBehaviour
         if (hit != null)
             jumpsRemaining = extraJumps; // Reset jumps if grounded
         return hit != null;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Enemy"))
+        {
+            if (rb.velocity.y > 0) // if player is jumping
+            {
+                DefeatEnemy(collision.gameObject);
+                JumpOnEnemy();
+            }
+            else
+            {
+                Health health = GetComponent<Health>();
+                health.HitTaken(health.currentHealth);
+            }
+        }
+    }
+
+    private void DefeatEnemy(GameObject enemy)
+    {
+        enemy.GetComponent<Animator>().SetTrigger("defeat");
+        enemy.GetComponent<BoxCollider2D>().enabled = false;
+        enemy.GetComponent<EnemyMovement>().enabled = false;
+    }
+
+    private void JumpOnEnemy()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, defeatJumpForce);
     }
 }
