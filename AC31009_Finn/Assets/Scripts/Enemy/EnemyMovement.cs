@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Windows;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -26,21 +25,27 @@ public class EnemyMovement : MonoBehaviour
 
     private void HandleEnemyMovement()
     {
-        float xInput = enemySpeed * Time.deltaTime * (moveRight ? 1 : -1);
-        transform.position = new Vector3(transform.position.x + xInput, transform.position.y, transform.position.z);
-        // Change character direction when turning left
-        if (Mathf.Sign(xInput) != 0)
-            transform.localScale = new Vector3(10 * Mathf.Sign(xInput), 10, 10);
-
-        if (transform.position.x >= rightLimit && moveRight)
+        float xInput = enemySpeed * Time.deltaTime;
+        if (moveRight)
         {
-            moveRight = false;
+            transform.position += new Vector3(xInput, 0, 0);
+            if (transform.position.x >= rightLimit)
+            {
+                moveRight = false;
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            }
         }
-        else if (transform.position.x <= leftLimit && !moveRight)
+        else
         {
-            moveRight = true;
+            transform.position -= new Vector3(xInput, 0, 0);
+            if (transform.position.x <= leftLimit)
+            {
+                moveRight = true;
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            }
         }
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -58,7 +63,7 @@ public class EnemyMovement : MonoBehaviour
             }
         }
     }
-    public void Defeated()
+    public void Defeated(float delay = 0.75f)
     {
         // Play death animation
         GetComponent<Animator>().SetTrigger("EnemyDeath");
@@ -67,6 +72,7 @@ public class EnemyMovement : MonoBehaviour
         // Disable movement
         enabled = false;
         // Destroy game object after a delay
-        Destroy(gameObject, 0.75f);
+        Destroy(gameObject, delay);
     }
+
 }

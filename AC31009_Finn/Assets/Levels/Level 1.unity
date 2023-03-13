@@ -1936,7 +1936,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -938.17535, y: 464}
+  m_AnchoredPosition: {x: -938.17535, y: 393}
   m_SizeDelta: {x: -1874.551, y: -1032.2207}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1061747772
@@ -2367,7 +2367,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   deathHeight: -3
-  defeatJumpForce: 0
 --- !u!95 &1389580971
 Animator:
   serializedVersion: 5
@@ -2400,7 +2399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04ed01d3ca0909548ad67b0ceadc3adb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 3
+  maxHealth: 3
 --- !u!1 &1398831840
 GameObject:
   m_ObjectHideFlags: 0
@@ -3940,7 +3939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7859828300916435282, guid: 24ced7804e043ca429cf1519b1d766f0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.36
+      value: -1.12
       objectReference: {fileID: 0}
     - target: {fileID: 7859828300916435282, guid: 24ced7804e043ca429cf1519b1d766f0, type: 3}
       propertyPath: m_LocalPosition.z
