@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int extraJumps;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] float deathHeight;
-    [SerializeField] private float defeatJumpForce;
+
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
         HandleMovementInput();
         HandleJumpInput();
         UpdateAnimator();
-        CheckDeathHeight();
+        IsPlayerAlive();
     }
 
     private void HandleMovementInput()
@@ -66,14 +66,15 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("grounded", OnGround());
     }
 
-    private void CheckDeathHeight()
+    private void IsPlayerAlive()
     {
+        Health health = GetComponent<Health>();
         if (transform.position.y < deathHeight)
         {
-            Health health = GetComponent<Health>();
-            health.HitTaken(health.currentHealth);
+            health.Respawn();
         }
     }
+
 
     private bool OnGround()
     {
@@ -91,7 +92,6 @@ public class PlayerMovement : MonoBehaviour
             if (rb.velocity.y > 0) // if player is jumping
             {
                 DefeatEnemy(collision.gameObject);
-                JumpOnEnemy();
             }
             else
             {
@@ -103,13 +103,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void DefeatEnemy(GameObject enemy)
     {
-        enemy.GetComponent<Animator>().SetTrigger("defeat");
         enemy.GetComponent<BoxCollider2D>().enabled = false;
         enemy.GetComponent<EnemyMovement>().enabled = false;
     }
 
-    private void JumpOnEnemy()
-    {
-        rb.velocity = new Vector2(rb.velocity.x, defeatJumpForce);
-    }
 }
