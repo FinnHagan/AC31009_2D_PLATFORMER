@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class HeartItem : MonoBehaviour
 {
-    [SerializeField] private float heartValue;
+    private float heartValue = 1f;
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collider.CompareTag("Player"))
+        if(collision.CompareTag("Player"))
         {
-            collider.GetComponent<Health>().RestoreHeart(heartValue);
+            collision.GetComponent<Health>().RestoreHeart(heartValue);
             gameObject.SetActive(false);
         }
     }

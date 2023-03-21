@@ -1,14 +1,13 @@
 using UnityEngine;
-using System.Collections;
 
 public class Candy : MonoBehaviour
 {
-    [SerializeField] private float maxCandy;
+    private float maxCandy = 3f;
     public float currentCandy { get; private set; }
 
     public void Awake()
     {
-        currentCandy = 0f; // set initial candy to 0
+        currentCandy = 0f; //none collected at the start
     }
 
     public void CollectCandy(float amount)

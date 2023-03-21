@@ -2,11 +2,10 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private float hit;
-    [SerializeField] private float moveLength;
-    [SerializeField] private float enemySpeed;
-    [SerializeField] private float attackCooldown;
-
+    private float hit = 1f;
+    private float moveLength = 4f;
+    private float enemySpeed = 7f;
+    private float attackCooldown = 1f;
     private float leftLimit;
     private float rightLimit;
     private bool moveRight = true;
@@ -14,18 +13,16 @@ public class EnemyMovement : MonoBehaviour
 
     private void Awake()
     {
+        //Handles the distance the enemy can move left and right
         leftLimit = transform.position.x - moveLength;
         rightLimit = transform.position.x + moveLength;
     }
 
     private void Update()
     {
-        HandleEnemyMovement();
-    }
-
-    private void HandleEnemyMovement()
-    {
         float xInput = enemySpeed * Time.deltaTime;
+
+        //Move the enemy to the right until it reaches its right limit, and then to to the left when it reaches its left limit
         if (moveRight)
         {
             transform.position += new Vector3(xInput, 0, 0);
@@ -46,9 +43,9 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Check if the player is vulnerable to being hit based off of the enemy attack cooldown
         if (collision.CompareTag("Player") && Time.time - lastAttackTime >= attackCooldown)
         {
             Vector2 collisionDirection = collision.transform.position - transform.position;
@@ -65,14 +62,10 @@ public class EnemyMovement : MonoBehaviour
     }
     public void Defeated(float delay = 0.75f)
     {
-        // Play death animation
         GetComponent<Animator>().SetTrigger("EnemyDeath");
-        // Disable collider
         GetComponent<Collider2D>().enabled = false;
-        // Disable movement
-        enabled = false;
-        // Destroy game object after a delay
-        Destroy(gameObject, delay);
+        enabled = false; //Disables movement
+        Destroy(gameObject, delay); //Destroys the enemy object after a delay the length of the animation
     }
 
 }
