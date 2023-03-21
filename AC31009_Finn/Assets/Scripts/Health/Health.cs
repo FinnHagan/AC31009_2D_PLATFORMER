@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private float maxHealth;
     public float currentHealth { get; private set; }
+    private float maxHealth = 3f;
     private Animator anim;
     private bool dead;
 
@@ -16,7 +16,7 @@ public class Health : MonoBehaviour
 
     public void HitTaken(float hit)
     {
-        currentHealth = Mathf.Clamp(currentHealth - hit, 0, maxHealth);
+        currentHealth = Mathf.Clamp(currentHealth - hit, 0, maxHealth); //Takes one hit point from the total hearts the player has at that time
 
         if (currentHealth > 0)
         {
@@ -39,10 +39,7 @@ public class Health : MonoBehaviour
 
     private IEnumerator RespawnTimer()
     {
-        yield return new WaitForSeconds(3f); // Wait for 3 seconds before respawning
-
-        anim.ResetTrigger("die");
-        // Respawn the player
+        yield return new WaitForSeconds(2f); // Waits for a bit before respawning the player
         Respawn();
     }
 
@@ -66,6 +63,7 @@ public class Health : MonoBehaviour
         // Reset health and any other necessary variables
         currentHealth = maxHealth;
         anim.ResetTrigger("die");
+        anim.Play("Idle");
 
         // Reactivate any disabled components
         GetComponent<PlayerMovement>().enabled = true;

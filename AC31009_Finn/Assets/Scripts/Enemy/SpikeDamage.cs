@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SpikeDamage : MonoBehaviour
 {
-    [SerializeField] private float hit;
+    private float hit = 1f;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
