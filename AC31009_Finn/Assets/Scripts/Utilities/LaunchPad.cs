@@ -3,7 +3,7 @@ using UnityEngine;
 public class LaunchPad : MonoBehaviour
 {
     private float bounce = 22f;
-    private float freezeTime = 2f;
+    private float freezeTime = 1f;
     private Animator anim;
     private float timer;
     private float animSpeed; //When the animation gets frozen it messes up the animation speed, so this is necessary to keep the animation playing after freezing

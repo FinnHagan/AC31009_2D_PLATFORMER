@@ -33,7 +33,7 @@ public class LadderMovement : MonoBehaviour
         }
         else
         {
-            rb.gravityScale = 1f; //Restores gravity back to normal after coming off ladder
+            rb.gravityScale = 1.5f; //Restores gravity back to normal after coming off ladder
         }
     }
 
