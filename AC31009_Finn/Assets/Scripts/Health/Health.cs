@@ -40,7 +40,7 @@ public class Health : MonoBehaviour
     private IEnumerator RespawnTimer()
     {
         yield return new WaitForSeconds(2f); // Waits for a bit before respawning the player
-        Respawn();
+        RespawnPlayer();
     }
 
 
@@ -55,7 +55,7 @@ public class Health : MonoBehaviour
         dead = true;
     }
 
-    public void Respawn()
+    public void RespawnPlayer()
     {
         // Reset position to a predefined spawn point
         transform.position = new Vector3(-16.9f, -0.69f, 0);
