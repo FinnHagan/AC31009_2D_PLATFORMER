@@ -1,17 +1,19 @@
 using UnityEngine;
-using System.Collections;
 
 public class Health : MonoBehaviour
 {
-    public float currentHealth { get; private set; }
-    private float maxHealth = 3f;
+    public float currentHealth { get; set; }
+    public float maxHealth = 3f;
     private Animator anim;
     private bool dead;
+    private Respawner respawner;
 
     public void Awake()
     {
         currentHealth = maxHealth;
         anim = GetComponent<Animator>();
+        respawner = GetComponent<Respawner>();
+
     }
 
     public void HitTaken(float hit)
@@ -32,15 +34,10 @@ public class Health : MonoBehaviour
                 OnDeath();
 
                 // Start timer to respawn the player after 3 seconds
-                StartCoroutine(RespawnTimer());
+                StartCoroutine(respawner.RespawnTimer());
+                dead = false;
             }
         }
-    }
-
-    private IEnumerator RespawnTimer()
-    {
-        yield return new WaitForSeconds(2f); // Waits for a bit before respawning the player
-        RespawnPlayer();
     }
 
 
@@ -55,22 +52,4 @@ public class Health : MonoBehaviour
         dead = true;
     }
 
-    public void RespawnPlayer()
-    {
-        // Reset position to a predefined spawn point
-        transform.position = new Vector3(-16.9f, -0.69f, 0);
-
-        // Reset health and any other necessary variables
-        currentHealth = maxHealth;
-        anim.ResetTrigger("die");
-        anim.Play("Idle");
-
-        // Reactivate any disabled components
-        GetComponent<PlayerMovement>().enabled = true;
-        GetComponent<BoxCollider2D>().enabled = true;
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-
-        // Set the dead variable to false
-        dead = false;
-    }
 }
