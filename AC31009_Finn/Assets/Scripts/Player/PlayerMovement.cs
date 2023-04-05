@@ -78,10 +78,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void FallDeath()
     {
-        Health health = GetComponent<Health>();
+        Respawner respawner = GetComponent<Respawner>();
         if (transform.position.y < deathHeight)
         {
-            health.RespawnPlayer();
+            respawner.Respawn();
         }
     }
 
