@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Ladder
   - LaunchPad
+  - PowerUpItem
   layers:
   - Default
   - TransparentFX

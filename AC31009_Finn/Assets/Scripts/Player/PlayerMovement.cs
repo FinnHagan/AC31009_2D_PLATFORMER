@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float playerSpeed = 15f;
-    private float jumpForce = 10f;
+    public float playerSpeed = 15f;
+    public float jumpForce = 10f;
     private float deathHeight = -30f;
     private int extraJumps = 2;
     private int jumpsRemaining;
