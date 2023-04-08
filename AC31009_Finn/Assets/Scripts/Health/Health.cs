@@ -8,6 +8,8 @@ public class Health : MonoBehaviour
     private bool dead;
     private Respawner respawner;
     public bool checkInvincibility { get; set; } // Add isInvincible variable
+    public AudioClip hitSound;
+
 
     public void Awake()
     {
@@ -25,6 +27,7 @@ public class Health : MonoBehaviour
             if (currentHealth > 0)
             {
                 anim.SetTrigger("hit");
+                SoundEffects.instance.Play(hitSound);
             }
             else
             {
