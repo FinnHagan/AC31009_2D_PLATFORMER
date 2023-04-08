@@ -6,13 +6,15 @@ public class Respawner : MonoBehaviour
 {
     private Animator anim;
     private Health health;
-    private GameController gameController;
+    private LevelRestart restartLevel;
+    public AudioClip playerDeathSound;
+
 
     public void Awake()
     {
         anim = GetComponent<Animator>();
         health = GetComponent<Health>();
-        gameController = FindObjectOfType<GameController>();
+        restartLevel = FindObjectOfType<LevelRestart>();
 
     }
 
@@ -31,13 +33,14 @@ public class Respawner : MonoBehaviour
         GetComponent<BoxCollider2D>().enabled = true;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
-        gameController.RestartLevel1();
+        restartLevel.RestartLevel1();
     }
 
 
     public IEnumerator RespawnTimer()
     {
-        yield return new WaitForSeconds(2f); // Waits for a bit before respawning the player
+        SoundEffects.instance.Play(playerDeathSound);
+        yield return new WaitForSeconds(3f); // Waits for a bit before respawning the player
         Respawn();
     }
 }

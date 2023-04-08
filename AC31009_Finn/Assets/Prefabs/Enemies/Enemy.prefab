@@ -145,7 +145,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb3408ff4dbab444da5ee42246550886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hit: 1
-  moveLength: 4
-  enemySpeed: 7
-  attackCooldown: 1
+  enemyDeathSound: {fileID: 8300000, guid: 254a5405a5b293b4c87b0264ec02a97c, type: 3}

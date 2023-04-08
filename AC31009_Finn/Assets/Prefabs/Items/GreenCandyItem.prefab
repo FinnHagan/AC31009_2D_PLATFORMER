@@ -124,4 +124,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81c0a31b524853419ff34279a3d2946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  candy: 1
+  candySound: {fileID: 8300000, guid: eda5813fffdd52e4c8959a7716460dd6, type: 3}

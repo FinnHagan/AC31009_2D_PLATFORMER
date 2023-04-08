@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private BoxCollider2D bc;
     private LadderMovement climbing;
-
+    public AudioClip jumpSound;
 
     private void Awake()
     {
@@ -52,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        SoundEffects.instance.Play(jumpSound);
         anim.SetTrigger("jump");
     }
 
@@ -81,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
         Respawner respawner = GetComponent<Respawner>();
         if (transform.position.y < deathHeight)
         {
-            respawner.Respawn();
+            StartCoroutine(respawner.RespawnTimer());
         }
     }
 

@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
     private float rightLimit;
     private bool moveRight = true;
     private float lastAttackTime = 0f;
+    public AudioClip enemyDeathSound;
 
     private void Awake()
     {
@@ -62,6 +63,7 @@ public class EnemyMovement : MonoBehaviour
     }
     public void Defeated(float delay = 0.75f)
     {
+        SoundEffects.instance.Play(enemyDeathSound);
         GetComponent<Animator>().SetTrigger("EnemyDeath");
         GetComponent<Collider2D>().enabled = false;
         enabled = false; //Disables movement
