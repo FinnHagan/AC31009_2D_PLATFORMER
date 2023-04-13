@@ -40,7 +40,6 @@ public class PowerUpController : MonoBehaviour
 
     private IEnumerator SuperJelly()
     {
-        Debug.Log("SPEED");
         float originalSpeed = playerMovement.playerSpeed;
         playerMovement.playerSpeed *= 2f;
         float originalJumpForce = playerMovement.jumpForce;
@@ -48,16 +47,13 @@ public class PowerUpController : MonoBehaviour
         yield return new WaitForSeconds(5f);
         playerMovement.playerSpeed = originalSpeed;
         playerMovement.jumpForce = originalJumpForce;
-        Debug.Log("POOO");
     }
 
     private IEnumerator InvincibilityEffect()
     {
-        Debug.Log("invini");
         playerHealth.checkInvincibility = true;
         yield return new WaitForSeconds(5f);
         playerHealth.checkInvincibility = false;
-        Debug.Log("POOO");
     }
 
     // Returns a random power-up type
