@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class PlayerMovement : MonoBehaviour
 {
     public float playerSpeed = 15f;
@@ -97,19 +96,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Enemy"))
-        {
-            if (rb.velocity.y > 0) // if player is jumping
-            {
-                DefeatEnemy(collision.gameObject);
-            }
-            else
-            {
-                Health health = GetComponent<Health>();
-                health.HitTaken(health.currentHealth);
-            }
-        }
-        else if (collision.gameObject.CompareTag("LaunchPad"))
+
+        if (collision.gameObject.CompareTag("LaunchPad"))
         {
             launched = true;
         }
@@ -119,12 +107,4 @@ public class PlayerMovement : MonoBehaviour
             launched = false; //Allows player to jump once they've been grounded
         }
     }
-
-
-    private void DefeatEnemy(GameObject enemy)
-    {
-        enemy.GetComponent<BoxCollider2D>().enabled = false;
-        enemy.GetComponent<EnemyMovement>().enabled = false;
-    }
-
 }
