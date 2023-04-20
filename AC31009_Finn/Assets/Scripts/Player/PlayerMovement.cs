@@ -3,7 +3,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float playerSpeed = 15f;
     public float jumpForce = 10f;
-    private float deathHeight = -30f;
+    private float deathHeight = -50f;
     private int extraJumps = 2;
     private int jumpsRemaining;
     private bool launched = false;

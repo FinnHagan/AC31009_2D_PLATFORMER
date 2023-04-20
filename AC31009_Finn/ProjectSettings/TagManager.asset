@@ -9,6 +9,8 @@ TagManager:
   - Ladder
   - LaunchPad
   - PowerUpItem
+  - Waypoint1
+  - Waypoint2
   layers:
   - Default
   - TransparentFX
