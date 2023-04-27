@@ -90,7 +90,7 @@ public class MainMenu : MonoBehaviour
     public IEnumerator ApplyChanges()
     {
         confirmation.SetActive(true);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.5f);
         confirmation.SetActive(false);
     }
 }
