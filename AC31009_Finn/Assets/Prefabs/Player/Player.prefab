@@ -175,6 +175,7 @@ MonoBehaviour:
   playerSpeed: 15
   jumpForce: 10
   jumpSound: {fileID: 8300000, guid: daa7c53da9e9aa44aaa631f99ccc7b79, type: 3}
+  playerDeathSound: {fileID: 8300000, guid: a878b21996507724f99f60511b375ff3, type: 3}
 --- !u!114 &6877443490403478565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,7 +189,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onLadder: 0
-  climbingSound: {fileID: 8300000, guid: 66f543ad763d79148ae427dab16a0ec9, type: 3}
 --- !u!114 &6877443490403478564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   hitSound: {fileID: 8300000, guid: 459b22c107f34ea4ea2f1a47b1dd85d2, type: 3}
+  playerDeathSound: {fileID: 8300000, guid: a878b21996507724f99f60511b375ff3, type: 3}
 --- !u!114 &6877443490403478566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d0dabf02fa75f41b9582df83bb86c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerDeathSound: {fileID: 8300000, guid: a878b21996507724f99f60511b375ff3, type: 3}
+  deathScreen: {fileID: 0}
 --- !u!114 &6877443490403478584
 MonoBehaviour:
   m_ObjectHideFlags: 0

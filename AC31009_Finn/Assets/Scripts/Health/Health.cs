@@ -7,8 +7,10 @@ public class Health : MonoBehaviour
     private Animator anim;
     private bool dead;
     private Respawner respawner;
-    public bool checkInvincibility { get; set; } // Add isInvincible variable
+    public bool checkInvincibility { get; set; }
     public AudioClip hitSound;
+    public AudioClip playerDeathSound;
+
 
 
     public void Awake()
@@ -34,11 +36,8 @@ public class Health : MonoBehaviour
                 if (!dead)
                 {
                     anim.SetTrigger("die");
-                    GetComponent<PlayerMovement>().enabled = false;
+                    SoundEffects.instance.Play(playerDeathSound);
                     dead = true;
-                    OnDeath();
-
-                    // Start timer to respawn the player after 3 seconds
                     StartCoroutine(respawner.RespawnTimer());
                     dead = false;
                 }
@@ -51,9 +50,4 @@ public class Health : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
     }
 
-    public void OnDeath()
-    {
-        GetComponent<PlayerMovement>().enabled = false;
-        dead = true;
-    }
 }

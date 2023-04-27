@@ -2,21 +2,18 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-
 public class Respawner : MonoBehaviour
 {
-    public AudioClip playerDeathSound;
+    public DeathScreen deathScreen;
 
-    public void Respawn()
+    public void GameOver()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        deathScreen.OnDeath();
     }
-
 
     public IEnumerator RespawnTimer()
     {
-        SoundEffects.instance.Play(playerDeathSound);
-        yield return new WaitForSeconds(3f); // Waits for a bit before respawning the player
-        Respawn();
+        yield return new WaitForSeconds(1.5f);
+        GameOver();
     }
 }
