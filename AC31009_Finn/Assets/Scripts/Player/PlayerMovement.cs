@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private int extraJumps = 2;
     private int jumpsRemaining;
     private bool launched = false;
+    public Respawner respawner;
 
 
     private LayerMask groundLayer;
@@ -17,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D bc;
     private LadderMovement climbing;
     public AudioClip jumpSound;
+    public AudioClip playerDeathSound;
+
 
     private void Awake()
     {
@@ -26,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
         groundLayer = LayerMask.NameToLayer("Ground");
         jumpsRemaining = extraJumps;
         climbing = GetComponent<LadderMovement>();
+        respawner = GetComponent<Respawner>();
+
     }
 
     private void Update()
@@ -78,9 +84,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void FallDeath()
     {
-        Respawner respawner = GetComponent<Respawner>();
         if (transform.position.y < deathHeight)
         {
+            SoundEffects.instance.Play(playerDeathSound);
             StartCoroutine(respawner.RespawnTimer());
         }
     }
