@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7082284599375021301}
   - component: {fileID: 7082284599375021290}
   - component: {fileID: 2991134402080996812}
+  - component: {fileID: 4784494846229203032}
   m_Layer: 0
   m_Name: FinishFlag
   m_TagString: Untagged
@@ -124,4 +125,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8beef87e5951f7c4a9b58cf7a345650e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelWon: {fileID: 8300000, guid: 5472dbf7763c4e548bb05e95af61bf3c, type: 3}
+--- !u!95 &4784494846229203032
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7082284599375021291}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c0b4eae04626cd04983d3b8e2fc56bf8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
