@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3484150622201603707}
   - component: {fileID: 3484150622201603704}
   - component: {fileID: 3484150622201603706}
+  - component: {fileID: 3681839383701534849}
   m_Layer: 0
   m_Name: PowerUpItem
   m_TagString: PowerUpItem
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -422161991
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -994233651, guid: 6e7e3acc5d4187948a902f1e04961f48, type: 3}
+  m_Sprite: {fileID: -1889216054, guid: 8bcf71d5835e4f24a837aa6c6c0066c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,7 +104,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.18, y: 0.18}
+    oldSize: {x: 0.2, y: 0.2}
     newSize: {x: 0.18, y: 0.18}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -125,3 +126,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpSound: {fileID: 8300000, guid: d216bfa86145bec498e8db56ca28fddd, type: 3}
+--- !u!95 &3681839383701534849
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484150622201603711}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 20d394f00937dfb4a9364496c810471b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

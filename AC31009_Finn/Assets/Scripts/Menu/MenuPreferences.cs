@@ -12,7 +12,7 @@ public class MenuPreferences : MonoBehaviour
         {
             if(PlayerPrefs.HasKey("Volume"))
             {
-                float vol = PlayerPrefs.GetFloat("Voulme");
+                float vol = PlayerPrefs.GetFloat("Volume");
                 mainMenu.volumeValue.text = vol.ToString("0.0");
                 mainMenu.volumeSlider.value = vol;
                 AudioListener.volume = vol;
