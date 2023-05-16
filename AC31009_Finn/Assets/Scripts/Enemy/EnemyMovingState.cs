@@ -30,6 +30,7 @@ public class EnemyMovingState : IEnemyState
     {
         float xInput = enemySpeed * Time.fixedDeltaTime;
 
+        //Move the enemy to the right until it reaches its right limit, and then to to the left when it reaches its left limit
         if (moveRight)
         {
             stateManager.transform.position += new Vector3(xInput, 0, 0);
@@ -72,9 +73,4 @@ public class EnemyMovingState : IEnemyState
             }
         }
     }
-    public void ExitState()
-    {
-        // when player dies and enemies respawn
-    }
-
 }

@@ -12,7 +12,7 @@ public class LaunchPad : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-        animSpeed = anim.speed; // save the original animation speed
+        animSpeed = anim.speed; // Save the original animation speed
     }
 
     private void Update()
@@ -23,7 +23,7 @@ public class LaunchPad : MonoBehaviour
             if (timer <= 0f)
             {
                 anim.Play("LaunchPlayer");
-                anim.speed = animSpeed; // reset the animation speed
+                anim.speed = animSpeed; // Reset the animation speed
             }
             else if (timer > 0f)
             {

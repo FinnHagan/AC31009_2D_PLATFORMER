@@ -1,6 +1,5 @@
-using UnityEngine;
-
-public interface IEnemyState
+﻿using UnityEngine;
+public interface IBossState
 {
     void EnterState();
     void UpdateState();

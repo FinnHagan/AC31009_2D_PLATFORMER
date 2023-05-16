@@ -16,6 +16,7 @@ public class MovingPlatform : MonoBehaviour
         StartCoroutine(MoveToNextWaypoint());
     }
 
+    //There are two way points for each platform in Unity of which the tile will move between and essentially 'bounce' off if you will, going to and fro the points repeatedly
     private IEnumerator MoveToNextWaypoint()
     {
         while (true)

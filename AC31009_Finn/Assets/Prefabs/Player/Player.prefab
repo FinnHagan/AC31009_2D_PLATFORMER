@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 6877443490403478561}
   - component: {fileID: 6877443490403478560}
   - component: {fileID: 6877443490403478563}
-  - component: {fileID: 6877443490403478562}
   - component: {fileID: 6877443490403478565}
   - component: {fileID: 6877443490403478564}
   - component: {fileID: 6877443490403478566}
   - component: {fileID: 6877443490403478567}
   - component: {fileID: 6877443490403478584}
+  - component: {fileID: 2075352034087559983}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -160,23 +160,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &6877443490403478562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6877443490403478573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee265d2d81ccdf04ca4db3b16e3457bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpeed: 15
-  jumpForce: 10
-  respawner: {fileID: 6877443490403478567}
-  jumpSound: {fileID: 8300000, guid: daa7c53da9e9aa44aaa631f99ccc7b79, type: 3}
-  playerDeathSound: {fileID: 8300000, guid: a878b21996507724f99f60511b375ff3, type: 3}
 --- !u!114 &6877443490403478565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  dead: 0
   hitSound: {fileID: 8300000, guid: 459b22c107f34ea4ea2f1a47b1dd85d2, type: 3}
   playerDeathSound: {fileID: 8300000, guid: a878b21996507724f99f60511b375ff3, type: 3}
 --- !u!114 &6877443490403478566
@@ -242,3 +226,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1b4a2240f2c957419a45738effc9a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2075352034087559983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6877443490403478573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d6431cef1b3cd749931a374d9e5f26c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpeed: 15
+  jumpForce: 10
+  extraJumps: 2
+  jumpsRemaining: 0
+  hitDamage: 1
+  launched: 0
+  respawner: {fileID: 6877443490403478567}
+  jumpSound: {fileID: 8300000, guid: daa7c53da9e9aa44aaa631f99ccc7b79, type: 3}
+  playerDeathSound: {fileID: 8300000, guid: a878b21996507724f99f60511b375ff3, type: 3}

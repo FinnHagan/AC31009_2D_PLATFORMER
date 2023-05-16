@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1); //Loads level 1 (its build index is 1)
     }
 
     public void QuitGame()
@@ -33,25 +33,25 @@ public class MainMenu : MonoBehaviour
     public void VolumeController(float value)
     {
         AudioListener.volume = value;
-        volumeValue.text = value.ToString("0.0");
+        volumeValue.text = value.ToString("0.0"); // Updates the volume text display
     }
 
     public void ChangeVolume()
     {
-        PlayerPrefs.SetFloat("Volume", AudioListener.volume);
+        PlayerPrefs.SetFloat("Volume", AudioListener.volume); // Saves the volume setting in player preferences
         StartCoroutine(ApplyChanges());
     }
 
     public void BrightnessController(float value)
     {
         brightnessLevel = value;
-        brightnessValue.text = value.ToString("0.0");
+        brightnessValue.text = value.ToString("0.0"); //Updates brightness  text display
     }
 
     public void FullScreenController(bool check)
 
     {
-        isFullScreen = check;
+        isFullScreen = check; // Sets the fullscreen flag based on the toggle
     }
 
     public void ChangeGraphics()
@@ -60,11 +60,11 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("FullScreen", (isFullScreen ? 1 : 0));
         Screen.fullScreen = isFullScreen;
 
-        StartCoroutine(ApplyChanges());
+        StartCoroutine(ApplyChanges()); //Applies the saved changes for the changed settings
     }
 
 
-
+    //Predefinted default settings which the player can revert to by pressing reset in the respective window
     public void DefaultSettings(string menu)
     {
         if (menu == "Graphics")
@@ -87,6 +87,7 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    //Gives a confirmation message every time a setting is applied
     public IEnumerator ApplyChanges()
     {
         confirmation.SetActive(true);

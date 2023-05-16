@@ -11,7 +11,7 @@ public class SoundEffects : MonoBehaviour
         instance = this;
         audioSource = GetComponent<AudioSource>();
     }
-
+    //ALlows for the use of a singleton design pattern throughout  all the codebase
     public void Play(AudioClip clip)
     {
             audioSource.PlayOneShot(clip);
