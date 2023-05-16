@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PowerUpController : MonoBehaviour
 {
-    private PlayerMovement playerMovement;
+    private PlayerStateManager playerState;
     private Health playerHealth;
 
     public enum PowerUpType
@@ -15,7 +15,7 @@ public class PowerUpController : MonoBehaviour
 
     private void Awake()
     {
-        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        playerState = GameObject.Find("Player").GetComponent<PlayerStateManager>();
         playerHealth = GameObject.Find("Player").GetComponent<Health>();
     }
 
@@ -40,13 +40,13 @@ public class PowerUpController : MonoBehaviour
 
     private IEnumerator SuperJelly()
     {
-        float originalSpeed = playerMovement.playerSpeed;
-        playerMovement.playerSpeed *= 2f;
-        float originalJumpForce = playerMovement.jumpForce;
-        playerMovement.jumpForce *= 2f;
+        float originalSpeed = playerState.playerSpeed;
+        playerState.playerSpeed *= 2f;
+        float originalJumpForce = playerState.jumpForce;
+        playerState.jumpForce *= 2f;
         yield return new WaitForSeconds(5f);
-        playerMovement.playerSpeed = originalSpeed;
-        playerMovement.jumpForce = originalJumpForce;
+        playerState.playerSpeed = originalSpeed;
+        playerState.jumpForce = originalJumpForce;
     }
 
     private IEnumerator InvincibilityEffect()

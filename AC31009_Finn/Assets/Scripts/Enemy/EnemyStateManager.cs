@@ -2,8 +2,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+
 public class EnemyStateManager : MonoBehaviour
 {
+    public AudioClip enemyDeathSound;
 
     public IEnemyState currentState { get; private set; }
 
@@ -13,7 +15,6 @@ public class EnemyStateManager : MonoBehaviour
     {
         availableStates.Add(typeof(EnemyMovingState), new EnemyMovingState(this));
         availableStates.Add(typeof(EnemyDeathState), new EnemyDeathState(this));
-
     }
 
     private void Start()
@@ -25,25 +26,19 @@ public class EnemyStateManager : MonoBehaviour
     {
         if (!availableStates.ContainsKey(stateType))
         {
-            Debug.LogError($"State type {stateType} is not valid");
+            Debug.LogError($"The state {stateType} is invalid");
             return;
         }
 
         if (currentState != null && currentState.GetType() == stateType)
         {
-            Debug.LogWarning($"Already in state {stateType}");
+            Debug.LogWarning($"{stateType} is already active");
             return;
-        }
-
-        if (currentState != null)
-        {
-            currentState.ExitState();
         }
 
         currentState = availableStates[stateType];
         currentState.EnterState();
     }
-
 
     private void Update()
     {
@@ -53,4 +48,11 @@ public class EnemyStateManager : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (currentState != null)
+        {
+            currentState.OnTriggerEnter2D(collision);
+        }
+    }
 }

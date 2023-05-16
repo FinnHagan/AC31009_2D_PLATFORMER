@@ -23,7 +23,7 @@ public class DisappearingPlatform : MonoBehaviour
     private IEnumerator Disappear()
     {
         yield return new WaitForSeconds(dissapearTime);
-        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.bodyType = RigidbodyType2D.Dynamic; //Created a separate prefab for dissapearing tiles and changed rigid body type to dynamic so that it could fall down and thus be destroyed
         Destroy(gameObject, destroyTime);
     }
 
