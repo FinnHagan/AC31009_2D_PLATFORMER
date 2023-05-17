@@ -1,14 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-
-
 public class EnemyStateManager : MonoBehaviour
 {
     public AudioClip enemyDeathSound;
 
     public IEnemyState currentState { get; private set; }
-
     private Dictionary<Type, IEnemyState> availableStates = new Dictionary<Type, IEnemyState>();
 
     private void Awake()

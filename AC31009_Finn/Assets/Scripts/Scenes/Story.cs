@@ -1,8 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
-
-//https://youtu.be/8oTYabhj248 Reference video
+//https://youtu.be/8oTYabhj248 Reference video for how to get clickable text appearing on screen on specific levels
 
 public class Story : MonoBehaviour
 {
@@ -11,14 +10,12 @@ public class Story : MonoBehaviour
     public float textSpeed;
     private int index;
 
-    // Start is called before the first frame update
     void Start()
     {
         storyText.text = string.Empty;
         StartDialogue();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))

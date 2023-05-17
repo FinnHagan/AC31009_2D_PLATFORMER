@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-
 public class PlayerDieState : IPlayerState
 {
     private PlayerStateManager stateManager;

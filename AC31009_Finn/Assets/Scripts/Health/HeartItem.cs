@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class HeartItem : MonoBehaviour
 {
     private float heartValue = 1f;

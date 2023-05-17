@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-
 public class PlayerMovingState : IPlayerState
 {
     private PlayerStateManager stateManager;

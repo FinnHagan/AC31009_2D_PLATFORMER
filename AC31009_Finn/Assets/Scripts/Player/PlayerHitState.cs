@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-
 public class PlayerHitState : IPlayerState
 {
     private PlayerStateManager stateManager;

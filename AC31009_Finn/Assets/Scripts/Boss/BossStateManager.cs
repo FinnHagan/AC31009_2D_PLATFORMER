@@ -2,7 +2,6 @@
 using UnityEngine;
 using System;
 using System.Collections;
-
 public class BossStateManager : MonoBehaviour
 {
 	public AudioClip bossDeathSound;

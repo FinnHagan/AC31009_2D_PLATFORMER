@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class MenuPreferences : MonoBehaviour
 {
     public bool canUse = false;
