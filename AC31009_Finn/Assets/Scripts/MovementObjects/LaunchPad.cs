@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class LaunchPad : MonoBehaviour
 {
     private float bounce = 22f;

@@ -71,7 +71,6 @@ public class PlayerStateManager : MonoBehaviour
             currentState.HandleInput();
         }
     }
-
     public void Jump()
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);

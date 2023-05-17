@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class LadderMovement : MonoBehaviour
 {
     private Rigidbody2D rb;

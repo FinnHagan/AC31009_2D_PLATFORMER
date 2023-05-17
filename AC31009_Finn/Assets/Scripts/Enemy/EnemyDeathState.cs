@@ -1,9 +1,7 @@
 using UnityEngine;
-
 public class EnemyDeathState : IEnemyState
 {
     private EnemyStateManager stateManager;
-
     public EnemyDeathState(EnemyStateManager stateManager)
     {
         this.stateManager = stateManager;

@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-
 public class MovingPlatform : MonoBehaviour
 {
     public Transform waypoint1;

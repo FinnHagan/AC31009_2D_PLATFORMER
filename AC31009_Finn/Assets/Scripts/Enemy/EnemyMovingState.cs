@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class EnemyMovingState : IEnemyState
 {
     private EnemyStateManager stateManager;

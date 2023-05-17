@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-
 public class DisappearingPlatform : MonoBehaviour
 {
     private float dissapearTime = 0.01f;

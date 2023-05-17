@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-
 public class PlayerIdleState : IPlayerState
 {
     private PlayerStateManager stateManager;
